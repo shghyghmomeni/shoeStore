@@ -1,5 +1,5 @@
+const API_URL = "http://localhost:3000";
 const storageUserInfo = JSON.parse(localStorage.getItem("user"));
-console.log(storageUserInfo);
 const picField = document.getElementById("pic-field");
 const nameField = document.getElementById("name-field");
 
@@ -20,6 +20,20 @@ showUserInfo(
 //search
 
 //categories
+const getCategoriesList = async () => {
+  try {
+    const res = await fetch(`${API_URL}/doctors`);
+    const data = await res.json();
+    data.forEach((item) => {
+      addDoctorsToDOM(item);
+    });
+    console.log(data);
+  } catch (e) {
+    console.log(e);
+  }
+};
+getDoctorsList();
+
 function addCategoryToDOM() {
   const singleCategoryDiv = document.createElement("div");
   singleCategoryDiv.classList.add(

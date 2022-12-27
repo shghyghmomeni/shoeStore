@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "id": "nike",
+      "brandName": "Nike",
+      "logo": "../icons/categories/nike.svg",
+      "productsOfBrand": []
+    },
+    {
+      "id": "adidas",
+      "brandName": "Adidas",
+      "logo": "../icons/categories/adidas.svg",
+      "productsOfBrand": []
+    },
+    {
+      "id": "puma",
+      "brandName": "Puma",
+      "logo": "../icons/categories/puma.svg",
+      "productsOfBrand": []
+    },
+    {
+      "id": "asics",
+      "brandName": "Asics",
+      "logo": "../icons/categories/asics.svg",
+      "productsOfBrand": []
+    },
+    {
+      "id": "reebok",
+      "brandName": "Reebok",
+      "logo": "../icons/categories/reebok.svg",
+      "productsOfBrand": []
+    },
+    {
+      "id": "newbalance",
+      "brandName": "New Balance",
+      "logo": "../icons/categories/newbalance.svg",
+      "productsOfBrand": []
+    },
+    {
+      "id": "converse",
+      "brandName": "Converse",
+      "logo": "../icons/categories/converse.svg",
+      "productsOfBrand": []
+    }
+  ]
+}
