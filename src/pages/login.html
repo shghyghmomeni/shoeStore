@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login page</title>
+  </head>
+  <body>
+    <div class="main w-[100%] h-[100vh] px-4">
+      <div class="app-bar grid grid-cols-8 h-[10vh]">
+        <div class="col-start-1 col-span-1 flex items-center">
+          <img class="w-14" src="../icons/back-icon.svg" />
+        </div>
+        <div
+          class="col-start-2 col-span-6 flex items-center text-2xl font-semibold px-3"
+        ></div>
+      </div>
+
+      <div>
+        <div class="h-[25vh] flex justify-center items-center">
+          <img class="" src="../images/login-page-logo.svg" />
+        </div>
+        <div
+          class="h-[10vh] text-3xl font-medium flex justify-center items-center"
+        >
+          <h3>Login to Your Account</h3>
+        </div>
+        <form class="v-[55vh]">
+          <!-- Email Input -->
+          <div class="relative my-6">
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="#6C757D"
+                class="bi bi-envelope-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"
+                />
+              </svg>
+            </div>
+            <input
+              type="email"
+              id="email-input"
+              class="bg-gray-50 bordertext-sm rounded-lg block w-full pl-10 p-2.5 dark:bg-[#FAFAFA] dark:placeholder-[#6C757D] dark:text-black outline-black focus:bg-white"
+              placeholder="Email"
+            />
+          </div>
+
+          <!-- password Input -->
+          <div class="relative my-6">
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="#6C757D"
+                class="bi bi-lock-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                />
+              </svg>
+            </div>
+            <input
+              type="password"
+              id="password-input"
+              class="bg-gray-50 bordertext-sm rounded-lg block w-full pl-10 p-2.5 dark:bg-[#FAFAFA] dark:placeholder-[#6C757D] dark:text-black outline-black focus:bg-white"
+              placeholder="Password"
+            />
+          </div>
+
+          <!-- remember me checkbox -->
+          <div class="flex items-center justify-center mb-4">
+            <input
+              id="default-checkbox"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            />
+            <label
+              for="default-checkbox"
+              class="ml-2 text-sm font-medium text-[#212529] dark:text-[#212529]"
+              >Remember me</label
+            >
+          </div>
+          <button
+            type="submit"
+            id="submit-login"
+            class="slider-btn w-[100%] bg-[#212529] text-white font-bold my-8 py-4 rounded-full mt-40 disabled:opacity-70"
+          >
+            Sign in
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="../scripts/login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Homepage</title>
+  </head>
+  <body>
+    <div class="main px-4">
+      <!-- App bar -->
+      <div class="app-bar grid grid-cols-8 h-[10vh]">
+        <div class="col-start-1 col-span-1 flex items-center">
+          <img id="pic-field" class="w-14 rounded-full" src="" />
+        </div>
+
+        <div
+          class="col-start-2 col-span-5 flex flex-col justify-center items-start px-3"
+        >
+          <h6 class="text-lg font-bold">Good Morning 👋</h6>
+          <p
+            id="name-field"
+            class="col-start-2 col-span-6 flex items-center text-base font-semibold"
+          ></p>
+        </div>
+
+        <div class="flex flex-row justify-center">
+          <img class="w-7 rounded-full" src="../icons/bell-icon.svg" />
+        </div>
+        <div class="flex flex-row justify-center">
+          <img class="w-7 rounded-full" src="../icons/whishlist-icon.svg" />
+        </div>
+      </div>
+
+      <!-- Search bar -->
+      <div class="h-[8vh] flex justify-center items-center">
+        <form class="w-full">
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+            >
+              <img src="../icons/search-icon.svg" />
+            </div>
+            <input
+              type="search"
+              id="default-search"
+              class="block w-full px-4 py-3 pl-10 text-sm text-gray-900 border-gray-300 rounded-lg bg-gray-50 focus:ring-black focus:border-none dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-none"
+              placeholder="Search"
+              required
+            />
+          </div>
+        </form>
+      </div>
+
+      <!-- Categories section -->
+      <div
+        id="categories-section"
+        class="w-[100%] grid grid-cols-4 gap-4 bg-slate-400"
+      >
+        <div class="flex flex-col justify-center items-center bg-blue-400">
+          <img
+            class="w-[60px] h-[60px] bg-[#ECECEC] rounded-full p-4 mb-2"
+            src="../icons/categories/nike.svg"
+          />
+          <p>Nike</p>
+        </div>
+        <div class="flex flex-col justify-center items-center bg-blue-400">
+          <img
+            class="w-[60px] h-[60px] bg-red-300 rounded-full p-4 mb-2"
+            src="../icons/categories/nike.svg"
+          />
+          <p>Nike</p>
+        </div>
+        <div class="flex flex-col justify-center items-center bg-blue-400">
+          <img
+            class="w-[60px] h-[60px] bg-red-300 rounded-full p-4 mb-2"
+            src="../icons/categories/nike.svg"
+          />
+          <p>Nike</p>
+        </div>
+        <div class="flex flex-col justify-center items-center bg-blue-400">
+          <img
+            class="w-[60px] h-[60px] bg-red-300 rounded-full p-4 mb-2"
+            src="../icons/categories/nike.svg"
+          />
+          <p>Nike</p>
+        </div>
+        <div class="flex flex-col justify-center items-center bg-blue-400">
+          <img
+            class="w-[60px] h-[60px] bg-red-300 rounded-full p-4 mb-2"
+            src="../icons/categories/nike.svg"
+          />
+          <p>Nike</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="../scripts/homepage.js"></script>
+  </body>
+</html>
