@@ -51,7 +51,7 @@ const navigationIcons = [
   },
 ];
 const bottomNavDiv = document.getElementById("bottom-nav");
-console.log(document.URL);
+console.log(typeof document.URL);
 function createBottomNavigation() {
   const bottomNavigationDiv = document.createElement("div");
   bottomNavigationDiv.classList.add(
@@ -78,7 +78,12 @@ function createBottomNavigation() {
     bottomNavigationDiv.append(contentDiv);
 
     const iconBox = document.createElement("div");
-    iconBox.innerHTML = item.icon;
+    if (document.URL == item.pageUrl) {
+      iconBox.innerHTML = item.selectedIcon;
+    } else {
+      iconBox.innerHTML = item.icon;
+    }
+
     iconBox.classList.add("w-7", "border-[#212529]");
     contentDiv.append(iconBox);
 
