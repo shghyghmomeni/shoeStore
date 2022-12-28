@@ -43,15 +43,15 @@
       "productsOfBrand": []
     },
     {
-      "id": "converse",
-      "brandName": "Converse",
-      "logo": "../icons/categories/converse.svg",
+      "id": "disney",
+      "brandName": "Disney",
+      "logo": "../icons/categories/reebok.svg",
       "productsOfBrand": []
     },
     {
-      "id": "converse",
-      "brandName": "Converse",
-      "logo": "../icons/categories/converse.svg",
+      "id": "alpex",
+      "brandName": "Alpex",
+      "logo": "../icons/categories/asics.svg",
       "productsOfBrand": []
     }
   ],

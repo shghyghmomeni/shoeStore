@@ -2,7 +2,7 @@ const API_URL = "http://localhost:3000";
 const storageUserInfo = JSON.parse(localStorage.getItem("user"));
 const picField = document.getElementById("pic-field");
 const nameField = document.getElementById("name-field");
-let allCategoryData;
+const categoryItemsDiv = document.querySelector("#items");
 
 const categoriesField = document.getElementById("categories-section");
 
@@ -68,8 +68,7 @@ function addCategoryToDOM(item) {
 
 function addFullCategoryToDOM(data) {
   CategoryLimitSize = data.length;
-  allCategoryData = data;
-  console.log(allCategoryData);
+  let allCategoryData = data;
   for (let i = 0; i < 7; i++) {
     addCategoryToDOM(allCategoryData[i]);
   }
@@ -104,4 +103,54 @@ function addFullCategoryToDOM(data) {
       addCategoryToDOM(allCategoryData[i]);
     }
   });
+  addCategorySliderToDom(allCategoryData);
+}
+//categories slider
+function addCategorySliderToDom(allCategoryData) {
+  console.log(allCategoryData);
+  const itemDiv = document.createElement("div");
+  itemDiv.classList.add(
+    "w-fit",
+    "py-2.5",
+    "px-5",
+    "flex",
+    "justify-center",
+    "items-center",
+    "h-[40px]",
+    "bg-[#343A40]",
+    "border-[#343A40]",
+    "rounded-full",
+    "text-white",
+    "font-semibold",
+    "text-lg",
+    "active:bg-[#343A40]",
+    "active:text-white"
+  );
+  itemDiv.innerText = "All";
+  categoryItemsDiv.append(itemDiv);
+  for (let i = 0; i < allCategoryData.length; i++) {
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add(
+      "w-fit",
+      "py-2.5",
+      "px-5",
+      "flex",
+      "justify-center",
+      "items-center",
+      "h-[40px]",
+      "bg-white",
+      "border-2",
+      "border-[#343A40]",
+      "rounded-full",
+      "text-[#343A40]",
+      "font-semibold",
+      "text-lg",
+      "active:bg-[#343A40]",
+      "active:text-white"
+    );
+    itemDiv.innerText = allCategoryData[i].brandName;
+    categoryItemsDiv.append(itemDiv);
+  }
+
+  // element.classList.toggle("mystyle");
 }

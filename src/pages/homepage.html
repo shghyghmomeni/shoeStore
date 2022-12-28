@@ -7,6 +7,11 @@
     <link href="../dist/output.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Homepage</title>
+    <style>
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <div class="main px-4">
@@ -59,8 +64,24 @@
         id="categories-section"
         class="w-[100%] grid grid-cols-4 gap-4 mt-2"
       ></div>
+
+      <!-- Most Popular section -->
+      <div class="h-[10vh] mt-5">
+        <div class="flex flex-row justify-between items-center">
+          <h3 class="font-bold text-xl">More Popular</h3>
+          <p class="font-semibold text-lg">See All</p>
+        </div>
+        <!-- categories -->
+        <div class="overflow-x-scroll overflow-y-hidden py-4">
+          <div
+            id="items"
+            class="w-[100%] flex flex-row gap-3 relative overflow-x-scroll overflow-y-hidden whitespace-nowrap transition-all py-4 no-scrollbar"
+          ></div>
+        </div>
+      </div>
     </div>
 
     <script src="../scripts/homepage.js"></script>
+    <script src="../components/categorySlider.js"></script>
   </body>
 </html>
