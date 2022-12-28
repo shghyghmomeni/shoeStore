@@ -107,7 +107,6 @@ function addFullCategoryToDOM(data) {
 }
 //categories slider
 function addCategorySliderToDom(allCategoryData) {
-  console.log(allCategoryData);
   const itemDiv = document.createElement("div");
   itemDiv.classList.add(
     "w-fit",
