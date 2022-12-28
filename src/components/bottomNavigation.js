@@ -73,7 +73,7 @@ function createBottomNavigation() {
       "items-center"
     );
     contentDiv.addEventListener("click", () => {
-      window.open(item.pageUrl);
+      window.open(item.pageUrl, "-self");
     });
     bottomNavigationDiv.append(contentDiv);
 
