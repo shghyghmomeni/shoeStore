@@ -650,6 +650,10 @@ video {
   margin-top: 1vh;
 }
 
+.mb-\[12vh\] {
+  margin-bottom: 12vh;
+}
+
 .block {
   display: block;
 }
@@ -993,6 +997,10 @@ video {
 
 .pl-10 {
   padding-left: 2.5rem;
+}
+
+.pb-\[12vh\] {
+  padding-bottom: 12vh;
 }
 
 .text-lg {
