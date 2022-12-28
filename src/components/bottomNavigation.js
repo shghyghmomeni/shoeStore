@@ -51,7 +51,7 @@ const navigationIcons = [
   },
 ];
 const bottomNavDiv = document.getElementById("bottom-nav");
-console.log(typeof document.URL);
+// console.log(typeof document.URL);
 function createBottomNavigation() {
   const bottomNavigationDiv = document.createElement("div");
   bottomNavigationDiv.classList.add(

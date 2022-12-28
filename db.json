@@ -58,15 +58,76 @@
 
   "products": [
     {
-      "id": 123,
-      "productName": "Nike",
-      "image": "../icons/categories/nike.svg",
-      "cost": "",
-      "Brand": "",
+      "id": "1",
+      "productName": "clisto",
+      "image": "../images/products/clisto.png",
+      "cost": 600,
+      "Brand": "nike",
       "color": ["red", "blue"],
+      "size": ["37", "38", "40"],
       "rate": 1231,
       "stock": 20,
       "sold": 3120
+    },
+    {
+      "id": 2,
+      "productName": "desny",
+      "image": "../images/products/desny.png",
+      "cost": 358,
+      "Brand": "puma",
+      "color": ["red", "blue"],
+      "size": ["37", "38", "40"],
+      "rate": 1251,
+      "stock": 20,
+      "sold": 1254
+    },
+    {
+      "id": 3,
+      "productName": "istaflamingo",
+      "image": "../images/products/istaflamingo.png",
+      "cost": 520,
+      "Brand": "nike",
+      "color": ["red", "blue"],
+      "size": ["37", "38", "40"],
+      "rate": 2531,
+      "stock": 20,
+      "sold": 3170
+    },
+    {
+      "id": 4,
+      "productName": "k-swiss",
+      "image": "../images/products/k-swiss.png",
+      "cost": 640,
+      "Brand": "nike",
+      "color": ["red", "blue"],
+      "size": ["37", "38", "40"],
+      "rate": 1236,
+      "stock": 20,
+      "sold": 3820
+    },
+    {
+      "id": 5,
+      "productName": "mikso",
+      "image": "../images/products/mikso.png",
+      "cost": 530,
+      "Brand": "puma",
+      "color": ["red", "blue"],
+      "size": ["37", "38", "40"],
+      "rate": 2001,
+      "stock": 20,
+      "sold": 3122
+    },
+    {
+      "id": 6,
+      "productName": "yoyo",
+      "image": "../images/products/yoyo.png",
+      "cost": 570,
+      "Brand": "adidas",
+      "color": ["red", "blue"],
+      "size": ["37", "38", "40"],
+      "rate": 2071,
+      "stock": 25,
+      "sold": 3722
     }
   ]
 }
