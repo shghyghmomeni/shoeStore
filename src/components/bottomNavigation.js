@@ -23,9 +23,10 @@ function createBottomNavigation() {
   bottomNavigationDiv.classList.add(
     "flex",
     "flex-row",
-    "justify-around",
+    "justify-between",
     "items-center",
-    "h-[10vh]"
+    "h-[10vh]",
+    "px-2"
   );
   bottomNavDiv.append(bottomNavigationDiv);
 
