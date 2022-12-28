@@ -41,6 +41,32 @@
       "brandName": "Converse",
       "logo": "../icons/categories/converse.svg",
       "productsOfBrand": []
+    },
+    {
+      "id": "converse",
+      "brandName": "Converse",
+      "logo": "../icons/categories/converse.svg",
+      "productsOfBrand": []
+    },
+    {
+      "id": "converse",
+      "brandName": "Converse",
+      "logo": "../icons/categories/converse.svg",
+      "productsOfBrand": []
+    }
+  ],
+
+  "products": [
+    {
+      "id": 123,
+      "productName": "Nike",
+      "image": "../icons/categories/nike.svg",
+      "cost": "",
+      "Brand": "",
+      "color": ["red", "blue"],
+      "rate": 1231,
+      "stock": 20,
+      "sold": 3120
     }
   ]
 }
