@@ -4,11 +4,11 @@ const passInput = document.getElementById("password-input");
 const submitBtn = document.getElementById("submit-login");
 const mainDiv = document.querySelector(".main");
 
-emailInput.addEventListener("change", plusCount);
-passInput.addEventListener("change", plusCount);
+emailInput.addEventListener("input", plusCount);
+passInput.addEventListener("input", plusCount);
 submitBtn.addEventListener("click", submit);
 let count = 0;
-// submitBtn.disabled = true;
+submitBtn.disabled = true;
 
 let user = [
   {
@@ -21,7 +21,8 @@ let user = [
 ];
 
 function plusCount() {
-  count++;
+  count += 1;
+  console.log(count);
   if (count == 2) {
     submitBtn.disabled = false;
   }
