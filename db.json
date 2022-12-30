@@ -58,7 +58,7 @@
 
   "products": [
     {
-      "id": "1",
+      "id": 1,
       "productName": "clisto",
       "image": "../images/products/clisto.png",
       "cost": 600,

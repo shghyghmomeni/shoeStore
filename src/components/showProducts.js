@@ -20,6 +20,8 @@ getProducts();
 function addProductsToDOM(item) {
   const cart = document.createElement("div");
   cart.classList.add("h-[244px]", "mb-6");
+  cart.id = item.id;
+  cart.addEventListener("click", goToSingleProductPage);
   productListMainDiv.append(cart);
 
   const imageDiv = document.createElement("div");
@@ -51,3 +53,21 @@ function addProductsToDOM(item) {
   cost.innerText = `$ ${item.cost}`;
   informationDiv.append(cost);
 }
+
+//go to single page
+function goToSingleProductPage(e) {
+  productID = e.currentTarget.id;
+  console.log(productID);
+  getSingleProducts(productID);
+}
+
+const getSingleProducts = async (productID) => {
+  try {
+    const res = await fetch(`${API_URL}/products?id=${productID}`);
+    const singleProduct = await res.json();
+    console.log(singleProduct);
+    window.open(`../pages/singleProduct.html`, "_self");
+  } catch {
+    console.log("404 Page");
+  }
+};

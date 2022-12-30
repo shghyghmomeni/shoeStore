@@ -17,6 +17,10 @@ let user = [
     email: "shghygh.momeni18@gmail.com",
     pass: "123456789",
     pic: "../images/profileshghygh.jpg",
+    orders: {
+      active: [],
+      completed: [],
+    },
   },
 ];
 
