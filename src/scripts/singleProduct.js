@@ -1,3 +1,4 @@
+const API_URL = "http://localhost:3000";
 const addToCartDiv = document.getElementById("add-to-cart-div");
 const backIcon = document.querySelector(".back-icon");
 backIcon.addEventListener("click", showPrePage);
@@ -6,13 +7,45 @@ const productTitle = document.querySelector(".product-title");
 const productDescription = document.querySelector(".product-description");
 const sizeDiv = document.querySelector(".choose-size");
 const colorDiv = document.querySelector(".choose-color");
+const productID = window.location.href.split("=").reverse()[0];
 
 //back app bar
 function showPrePage() {
   history.back();
 }
+
+//get product information
+const getProductDetails = async () => {
+  try {
+    console.log(productID);
+    const res = await fetch(`${API_URL}/products/${productID}`);
+    const singleProduct = await res.json();
+    showAddToCartField(singleProduct);
+    showProductDetails(singleProduct);
+  } catch (e) {
+    console.log("404 Eror", e);
+  }
+};
+getProductDetails();
+
+function showProductDetails(product) {
+  productImage.src = product.image;
+  productTitle.innerText = product.productName;
+  productDescription.innerText = product.description;
+  product.sizes.forEach((element) => {
+    const size = document.createElement("div");
+    size.innerText = element.size;
+    sizeDiv.append(size);
+  });
+  product.colors.forEach((element) => {
+    const color = document.createElement("div");
+    color.classList.add(`bg-[${element.colorCode}]`);
+    colorDiv.append(color);
+  });
+}
+
 //checkout information
-function showAddToCartField() {
+function showAddToCartField(product) {
   const mainDiv = document.createElement("div");
   mainDiv.classList.add(
     "w-[100%]",
@@ -36,7 +69,7 @@ function showAddToCartField() {
 
   const totalPrice = document.createElement("p");
   totalPrice.classList.add("text-2xl", "font-bold");
-  totalPrice.innerText = "$ 150";
+  totalPrice.innerText = `$ ${product.cost}`;
   totalCostDiv.append(totalPrice);
 
   const addBtn = document.createElement("button");
@@ -61,21 +94,3 @@ function showAddToCartField() {
 <p>Add To Cart</p>`;
   mainDiv.append(addBtn);
 }
-showAddToCartField();
-
-function showProductDetails(product) {
-  productImage.src = product.image;
-  productTitle.innerText = product.title;
-  productDescription.innerText = productDescription;
-  product.sizes.forEach((element) => {
-    const size = document.createElement("div");
-    size.innerText = element.size;
-    sizeDiv.append(size);
-  });
-  product.colors.forEach((element) => {
-    const color = document.createElement("div");
-    color.classList.add(`bg-[${element.colorCode}]`);
-    colorDiv.append(color);
-  });
-}
-showProductDetails();

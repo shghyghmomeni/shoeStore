@@ -66,7 +66,7 @@ const getSingleProducts = async (productID) => {
     const res = await fetch(`${API_URL}/products?id=${productID}`);
     const singleProduct = await res.json();
     console.log(singleProduct);
-    window.open(`../pages/singleProduct.html`, "_self");
+    window.open(`../pages/singleProduct.html?id=${productID}`, "_self");
   } catch {
     console.log("404 Page");
   }
