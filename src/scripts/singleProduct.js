@@ -28,23 +28,42 @@ const getProductDetails = async () => {
 };
 getProductDetails();
 
+//show product information
 function showProductDetails(product) {
   productImage.src = product.image;
   productTitle.innerText = product.productName;
   productDescription.innerText = product.description;
-  product.sizes.forEach((element) => {
+  console.log(product.size);
+  product.size.forEach((element) => {
     const size = document.createElement("div");
-    size.innerText = element.size;
+    size.classList.add(
+      "flex",
+      "justify-center",
+      "items-center",
+      "text-lg",
+      "font-bold",
+      "w-[50px]",
+      "h-[50px]",
+      "border-2",
+      "border-black",
+      "rounded-full"
+    );
+    size.innerText = element;
     sizeDiv.append(size);
   });
-  product.colors.forEach((element) => {
+  product.colorCode.forEach((element) => {
     const color = document.createElement("div");
-    color.classList.add(`bg-[${element.colorCode}]`);
+    color.classList.add(
+      "w-[50px]",
+      "h-[50px]",
+      "rounded-full",
+      `bg-[${element}]`
+    );
     colorDiv.append(color);
   });
 }
 
-//checkout information
+//show checkout information
 function showAddToCartField(product) {
   const mainDiv = document.createElement("div");
   mainDiv.classList.add(
