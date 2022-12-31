@@ -3,7 +3,7 @@ const storageUserInfo = JSON.parse(localStorage.getItem("user"));
 const picField = document.getElementById("pic-field");
 const nameField = document.getElementById("name-field");
 const categoryItemsDiv = document.querySelector("#items");
-
+const searchInput = document.getElementById("search-input");
 const categoriesField = document.getElementById("categories-section");
 
 // App bar
@@ -18,6 +18,14 @@ showUserInfo(
 );
 
 //search
+searchInput.addEventListener("keypress", (event) => {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    console.log(searchInput.value);
+    localStorage.setItem("lastsearchText", JSON.stringify(searchInput.value));
+    window.open("../pages/searchResult.html", "_self");
+  }
+});
 
 //categories
 const getCategoriesList = async () => {
