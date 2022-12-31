@@ -6,7 +6,8 @@ const productListMainDiv = document.getElementById("product-list");
 
 //back app bar
 function showPrePage() {
-  history.back();
+  // history.back();
+  window.open("../pages/homepage.html", "_self");
 }
 
 // "http://localhost:3000/customer?name_like=rist"
