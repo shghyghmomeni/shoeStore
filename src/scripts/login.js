@@ -25,9 +25,17 @@ let user = [
 ];
 
 function plusCount() {
-  count += 1;
-  console.log(count);
-  if (count == 2) {
+  // count += 1;
+  // console.log(count);
+  // if (count == 2) {
+  //   submitBtn.disabled = false;
+  // }
+  if (
+    emailInput.value != null &&
+    emailInput.value != "" &&
+    passInput.value != null &&
+    passInput.value != ""
+  ) {
     submitBtn.disabled = false;
   }
 }
