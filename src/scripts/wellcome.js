@@ -48,4 +48,5 @@ function wellcomePage() {
 
 wellcomeDiv.addEventListener("click", () => {
   wellcomeDiv.classList.add("hidden");
+  sliderDiv.classList.remove("hidden");
 });

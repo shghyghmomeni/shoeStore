@@ -48,5 +48,6 @@ function splashPage() {
 
   setTimeout(() => {
     parentDiv.classList.add("hidden");
+    wellcomeDiv.classList.remove("hidden");
   }, 3000);
 }

@@ -17,7 +17,7 @@ function showPrePage() {
 //get product information
 const getProductDetails = async () => {
   try {
-    console.log(productID);
+    // console.log(productID);
     const res = await fetch(`${API_URL}/products/${productID}`);
     const singleProduct = await res.json();
     showAddToCartField(singleProduct);
@@ -33,7 +33,7 @@ function showProductDetails(product) {
   productImage.src = product.image;
   productTitle.innerText = product.productName;
   productDescription.innerText = product.description;
-  console.log(product.size);
+  // console.log(product.size);
   product.size.forEach((element) => {
     const size = document.createElement("div");
     size.classList.add(
@@ -112,4 +112,17 @@ function showAddToCartField(product) {
 </svg>
 <p>Add To Cart</p>`;
   mainDiv.append(addBtn);
+
+  addBtn.addEventListener("click", () => {
+    addToCart(product);
+  });
+}
+
+function addToCart(product) {
+  let storageUserInfo = JSON.parse(localStorage.getItem("user"))
+    ? JSON.parse(localStorage.getItem("user"))
+    : [];
+  storageUserInfo.orders.active.push(product);
+  localStorage.setItem("user", JSON.stringify(storageUserInfo));
+  console.log("storageUserInfo updated / poduct added to cart");
 }

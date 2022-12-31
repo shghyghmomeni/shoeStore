@@ -57,7 +57,7 @@ function sliderPage() {
 
   for (let i = 0; i < data.length; i++) {
     const bolet = document.createElement("div");
-    bolet.classList.add("w-7", "bg-black", "h-1", "rounded-xl");
+    bolet.classList.add("bolets", "w-7", "bg-black", "h-1", "rounded-xl");
     bolet.id = i;
     if (i == 0) {
       bolet.classList.add("opacity-100");
@@ -83,6 +83,26 @@ function sliderPage() {
   btn.addEventListener("click", nextSlide);
   function nextSlide() {
     console.log(currentslide);
+    const bolets = document.querySelectorAll(".bolets");
+    bolets.forEach((elem) => {
+      if (elem.classList.contains("opacity-100")) {
+        elem.classList.remove("opacity-100");
+        elem.classList.add("opacity-50");
+        console.log("clear");
+      }
+      if (currentslide < 3) {
+        bolets[currentslide].classList.remove("opacity-50");
+        bolets[currentslide].classList.add("opacity-100");
+      }
+
+      // if (elem.id == currentslide || elem.classList.contains("opacity-50")) {
+      //   elem.classList.remove("opacity-50");
+      //   elem.classList.add("opacity-100");
+      // }
+    });
+    // bolets[currentslide].classList.toggle("opacity-50");
+    // bolets[currentslide].classList.add("opacity-100");
+    console.log(bolets);
     updateSlide(currentslide++);
   }
   function updateSlide(id) {
