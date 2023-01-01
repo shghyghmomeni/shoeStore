@@ -11,6 +11,7 @@ const productID = window.location.href.split("=").reverse()[0];
 
 //object
 const reserveProductPattern = {
+  id: Date.now(),
   name: "",
   color: "",
   size: "",
@@ -160,6 +161,7 @@ function showAddToCartField(product) {
 
   addBtn.addEventListener("click", () => {
     let reserveProduct = new Object(reserveProductPattern);
+    // reserveProduct.id = Date.now();
     reserveProduct.name = product.productName;
     reserveProduct.color = JSON.parse(localStorage.getItem("selectedColor"));
     reserveProduct.size = JSON.parse(localStorage.getItem("selectedSize"));
