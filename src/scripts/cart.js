@@ -1,7 +1,17 @@
 const showProductDiv = document.getElementById("show-product-div");
 const checkoutDiv = document.getElementById("checkout-div");
+let storageUserInfo = JSON.parse(localStorage.getItem("user"));
+activeOrders = storageUserInfo.orders.active;
+console.log(activeOrders);
+
+activeOrders.forEach((element) => {
+  productCartAddToDOM(element);
+});
+
 //single product cart
 function productCartAddToDOM(item) {
+  console.log(item);
+
   const cartSingleProduct = document.createElement("div");
   cartSingleProduct.classList.add(
     "cart-single-product",
@@ -42,7 +52,7 @@ function productCartAddToDOM(item) {
   cartProductInfoDiv.append(titleDiv);
 
   const title = document.createElement("h1");
-  title.innerText = item.title;
+  title.innerText = item.name;
   titleDiv.append(title);
 
   const deleteIcon = document.createElement("div");
@@ -68,7 +78,7 @@ function productCartAddToDOM(item) {
   cartProductInfoDiv.append(colorAndSizeDiv);
 
   const colorDiv = document.createElement("div");
-  colorDiv.classList.add("rounded-full", "w-4", "h-4", "bg-black");
+  colorDiv.classList.add("rounded-full", "w-4", "h-4", `bg-[${item.color}]`);
   colorAndSizeDiv.append(colorDiv);
 
   const colortitle = document.createElement("p");
@@ -105,11 +115,21 @@ function productCartAddToDOM(item) {
     "flex-row",
     "justify-center",
     "items-center",
-    "h-8 bg-[#F3F3F3]",
+    "h-8",
+    "bg-[#F3F3F3]",
     "w-8",
     "rounded-l-full"
   );
   minus.innerText = "-";
+  minus.addEventListener("click", () => {
+    if (item.quantity <= 1) {
+      item.quantity = 1;
+      quantityNum.innerText = `1`;
+    } else {
+      item.quantity--;
+      quantityNum.innerText = `${item.quantity}`;
+    }
+  });
   quantity.append(minus);
 
   const quantityNum = document.createElement("div");
@@ -118,7 +138,8 @@ function productCartAddToDOM(item) {
     "flex-row",
     "justify-center",
     "items-center",
-    "h-8 bg-[#F3F3F3]",
+    "h-8",
+    "bg-[#F3F3F3]",
     "w-8"
   );
   quantityNum.innerText = `${item.quantity}`;
@@ -130,11 +151,16 @@ function productCartAddToDOM(item) {
     "flex-row",
     "justify-center",
     "items-center",
-    "h-8 bg-[#F3F3F3]",
+    "h-8",
+    "bg-[#F3F3F3]",
     "w-8",
     "rounded-r-full"
   );
   plus.innerText = "+";
+  plus.addEventListener("click", () => {
+    item.quantity++;
+    quantityNum.innerText = `${item.quantity}`;
+  });
   quantity.append(plus);
 }
 

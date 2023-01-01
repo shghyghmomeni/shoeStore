@@ -14,6 +14,7 @@ const reserveProductPattern = {
   name: "",
   color: "",
   size: "",
+  image: "",
   cost: 0,
   quantity: 1,
 };
@@ -162,6 +163,7 @@ function showAddToCartField(product) {
     reserveProduct.name = product.productName;
     reserveProduct.color = JSON.parse(localStorage.getItem("selectedColor"));
     reserveProduct.size = JSON.parse(localStorage.getItem("selectedSize"));
+    reserveProduct.image = product.image;
     reserveProduct.cost = product.cost;
     reserveProduct.quantity = 1;
     addToCart(reserveProduct);
