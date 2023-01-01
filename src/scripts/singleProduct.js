@@ -9,6 +9,15 @@ const sizeDiv = document.querySelector(".choose-size");
 const colorDiv = document.querySelector(".choose-color");
 const productID = window.location.href.split("=").reverse()[0];
 
+//object
+const reserveProductPattern = {
+  name: "",
+  color: "",
+  size: "",
+  cost: 0,
+  quantity: 1,
+};
+
 //back app bar
 function showPrePage() {
   history.back();
@@ -37,6 +46,7 @@ function showProductDetails(product) {
   product.size.forEach((element) => {
     const size = document.createElement("div");
     size.classList.add(
+      "sizes",
       "flex",
       "justify-center",
       "items-center",
@@ -45,20 +55,54 @@ function showProductDetails(product) {
       "w-[50px]",
       "h-[50px]",
       "border-2",
+      "bg-white",
+      "text-black",
       "border-black",
       "rounded-full"
     );
     size.innerText = element;
+    size.addEventListener("click", (e) => {
+      e.preventDefault();
+      let sizes = document.querySelectorAll(".sizes");
+      sizes.forEach((element) => {
+        if (element.classList.contains("text-white")) {
+          element.classList.remove("text-white", "bg-[#212529]");
+          element.classList.add("text-black", "bg-white");
+        }
+      });
+      e.target.classList.remove("text-black", "bg-white");
+      e.target.classList.add("text-white", "bg-[#212529]");
+      localStorage.setItem("selectedSize", JSON.stringify(e.target.innerText));
+      console.log(e.target.innerText);
+    });
     sizeDiv.append(size);
   });
   product.colorCode.forEach((element) => {
     const color = document.createElement("div");
+    color.id = `${element}`;
     color.classList.add(
+      "flex",
+      "justify-center",
+      "items-center",
+      "colors",
+      "text-3xl",
       "w-[50px]",
       "h-[50px]",
       "rounded-full",
       `bg-[${element}]`
     );
+    color.addEventListener("click", (e) => {
+      e.preventDefault();
+      let colors = document.querySelectorAll(".colors");
+      colors.forEach((element) => {
+        if (element.innerText == "✓") {
+          element.innerText = "";
+        }
+      });
+      e.target.innerText = "✓";
+      e.target.classList.remove("border-white");
+      localStorage.setItem("selectedColor", JSON.stringify(e.target.id));
+    });
     colorDiv.append(color);
   });
 }
@@ -114,11 +158,18 @@ function showAddToCartField(product) {
   mainDiv.append(addBtn);
 
   addBtn.addEventListener("click", () => {
-    addToCart(product);
+    let reserveProduct = new Object(reserveProductPattern);
+    reserveProduct.name = product.productName;
+    reserveProduct.color = JSON.parse(localStorage.getItem("selectedColor"));
+    reserveProduct.size = JSON.parse(localStorage.getItem("selectedSize"));
+    reserveProduct.cost = product.cost;
+    reserveProduct.quantity = 1;
+    addToCart(reserveProduct);
   });
 }
 
 function addToCart(product) {
+  console.log(product);
   let storageUserInfo = JSON.parse(localStorage.getItem("user"))
     ? JSON.parse(localStorage.getItem("user"))
     : [];
