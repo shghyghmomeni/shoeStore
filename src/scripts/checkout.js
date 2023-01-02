@@ -1,10 +1,16 @@
 const backIcon = document.querySelector(".back-icon");
 backIcon.addEventListener("click", showPrePage);
+
 let storageUserInfo = JSON.parse(localStorage.getItem("user"));
 let activeOrders = storageUserInfo.orders.active;
+
 const showProductDiv = document.getElementById("show-product-div");
 const defaultAddress = document.getElementById("default-address");
 const editAddress = document.getElementById("edit-address");
+
+const paymentBtn = document.getElementById("payment-btn");
+paymentBtn.addEventListener("click", goToPayment);
+
 let defaultAdd = "";
 
 //back app bar
@@ -129,4 +135,9 @@ function productCartAddToDOM(item) {
   );
   quantityNum.innerText = `${item.quantity}`;
   quantity.append(quantityNum);
+}
+
+//button
+function goToPayment() {
+  window.open("../pages/peyment.html", "_self");
 }
