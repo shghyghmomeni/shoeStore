@@ -17,6 +17,18 @@ let user = [
     email: "shghygh.momeni18@gmail.com",
     pass: "123456789",
     pic: "../images/profileshghygh.jpg",
+    address: [
+      {
+        addressNum: 1,
+        address: "Belgium	, place Louis 60 - Fosses-la-Ville",
+        defaultAddress: true,
+      },
+      {
+        addressNum: 1,
+        address: "Belgium	, place Louis 60 - Fosses-la-Ville",
+        defaultAddress: true,
+      },
+    ],
     orders: {
       active: [],
       completed: [],
