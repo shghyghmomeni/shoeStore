@@ -11,6 +11,10 @@ const editAddress = document.getElementById("edit-address");
 const paymentBtn = document.getElementById("payment-btn");
 paymentBtn.addEventListener("click", goToPayment);
 
+editAddress.addEventListener("click", () => {
+  window.open("../pages/manageAddress.html", "_self");
+});
+
 let defaultAdd = "";
 
 //back app bar

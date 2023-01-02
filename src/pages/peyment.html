@@ -24,67 +24,50 @@
     </div>
 
     <!-- methods -->
-    <div class="w-[100%] bg-[#F7F7F7] mt-[10vh] p-4">
+    <div class="w-[100%] bg-[#F7F7F7] mt-[10vh] h-[80vh] p-4">
       <h3 class="text-sm font-medium py-4">
         Select the peyment method you want to use
       </h3>
       <div
-        class="flex flex-row justify-between items-center p-4 w-[100%] bg-white h-[10vh] rounded-2xl"
+        class="flex flex-row justify-between mb-4 items-center p-4 w-[100%] bg-white h-[10vh] rounded-2xl"
       >
         <div
-          class="flex justify-center items-center bg-gray-300 w-[60px] h-[60px] rounded-full"
+          class="flex justify-center items-center w-[50px] h-[50px] rounded-full"
         >
-          <div
-            class="flex justify-center items-center bg-[#212529] w-[50px] h-[50px] rounded-full"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="white"
-              class="w-5 h-5"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 103 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 002.273 1.765 11.842 11.842 0 00.976.544l.062.029.018.008.006.003zM10 11.25a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </div>
+          <img src="../icons/methods/google.png" />
         </div>
-        <label for="1" class="labels w-[70%]"
-          >Belgium, place Louis 60 - Fosses-la-Ville</label
-        >
+
+        <label for="1" class="labels w-[70%]">Google Pay</label>
         <div>
           <input name="address-radio" type="radio" id="1" class="w-4 h-4" />
         </div>
       </div>
 
       <div
-        class="flex flex-row justify-between items-center p-4 w-[100%] bg-white h-[10vh] rounded-2xl"
+        class="flex flex-row justify-between mb-4 items-center p-4 w-[100%] bg-white h-[10vh] rounded-2xl"
       >
         <div
-          class="flex justify-center items-center bg-gray-300 w-[60px] h-[60px] rounded-full"
+          class="flex justify-center items-center w-[50px] h-[50px] rounded-full"
         >
-          <div
-            class="flex justify-center items-center bg-[#212529] w-[50px] h-[50px] rounded-full"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="white"
-              class="w-5 h-5"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 103 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 002.273 1.765 11.842 11.842 0 00.976.544l.062.029.018.008.006.003zM10 11.25a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </div>
+          <img src="../icons/methods/apple.png" />
         </div>
-        <label for="1" class="labels w-[70%]"
-          >USA, 3075 Rau Divide - Connecticut</label
+
+        <label for="1" class="labels w-[70%]">Apple Pay</label>
+        <div>
+          <input name="address-radio" type="radio" id="1" class="w-4 h-4" />
+        </div>
+      </div>
+
+      <div
+        class="flex flex-row justify-between mb-4 items-center p-4 w-[100%] bg-white h-[10vh] rounded-2xl"
+      >
+        <div
+          class="flex justify-center items-center w-[50px] h-[50px] rounded-full"
         >
+          <img src="../icons/methods/paypal.png" />
+        </div>
+
+        <label for="1" class="labels w-[70%]">PayPal</label>
         <div>
           <input name="address-radio" type="radio" id="1" class="w-4 h-4" />
         </div>
@@ -100,6 +83,6 @@
         Apply
       </button>
     </div>
-    <script src="../scripts/checkout.js"></script>
+    <script src="../scripts/peyment.js"></script>
   </body>
 </html>
