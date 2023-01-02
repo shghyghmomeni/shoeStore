@@ -1,8 +1,18 @@
 const showProductDiv = document.getElementById("show-product-div");
 const checkoutDiv = document.getElementById("checkout-div");
 let storageUserInfo = JSON.parse(localStorage.getItem("user"));
-activeOrders = storageUserInfo.orders.active;
-console.log(activeOrders);
+const deletePopup = document.getElementById("delete-popup");
+let activeOrders = storageUserInfo.orders.active;
+let totalSum = 0;
+// console.log(activeOrders);
+
+let totalSumFunction = (arr) => {
+  totalSum = 0;
+  arr.forEach((item) => {
+    totalSum += item.cost;
+  });
+};
+totalSumFunction(activeOrders);
 
 activeOrders.forEach((element) => {
   productCartAddToDOM(element);
@@ -10,8 +20,6 @@ activeOrders.forEach((element) => {
 
 //single product cart
 function productCartAddToDOM(item) {
-  console.log(item);
-
   const cartSingleProduct = document.createElement("div");
   cartSingleProduct.classList.add(
     "cart-single-product",
@@ -23,6 +31,7 @@ function productCartAddToDOM(item) {
     "p-3",
     "rounded-3xl"
   );
+  cartSingleProduct.id = item.id;
   showProductDiv.append(cartSingleProduct);
 
   //product image box
@@ -70,6 +79,14 @@ function productCartAddToDOM(item) {
     d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
   />
   </svg>`;
+  deleteIcon.addEventListener("click", (e) => {
+    deletePopup.classList.toggle("hidden");
+    let selectedProductForDelete = e.target.closest(`.cart-single-product`);
+    localStorage.setItem(
+      "selectedProductForDeleteID",
+      JSON.stringify(selectedProductForDelete.id)
+    );
+  });
   titleDiv.append(deleteIcon);
 
   //product Information box / Line 2 / selected color + size
@@ -166,6 +183,7 @@ function productCartAddToDOM(item) {
 
 //checkout information
 function showCheckoutField() {
+  checkoutDiv.innerHTML = "";
   const mainDiv = document.createElement("div");
   mainDiv.classList.add(
     "w-[100%]",
@@ -179,7 +197,7 @@ function showCheckoutField() {
 
   const totalCostDiv = document.createElement("div");
   totalCostDiv.id = "total-cost-div";
-  totalCostDiv.classList.add("w-[40%]", "z-50", "px-4", "py-1");
+  totalCostDiv.classList.add("w-[40%]", "z-40", "px-4", "py-1");
   mainDiv.append(totalCostDiv);
 
   const h6 = document.createElement("h6");
@@ -189,13 +207,13 @@ function showCheckoutField() {
 
   const totalPrice = document.createElement("p");
   totalPrice.classList.add("text-2xl", "font-bold");
-  totalPrice.innerText = "$ 150";
+  totalPrice.innerText = `$ ${totalSum}`;
   totalCostDiv.append(totalPrice);
 
   const checkoutBtn = document.createElement("button");
   checkoutBtn.classList.add(
     "w-[60%]",
-    "z-50",
+    "z-40",
     "px-4",
     "bg-[#212529]",
     "text-xl",
@@ -207,3 +225,43 @@ function showCheckoutField() {
   mainDiv.append(checkoutBtn);
 }
 showCheckoutField();
+
+//popup buttons function
+function cancelDelete() {
+  console.log("cancel delete!");
+  deletePopup.classList.toggle("hidden");
+}
+function yesDelete() {
+  console.log("yes delete!");
+  deletePopup.classList.toggle("hidden");
+  deleteFromCart();
+}
+
+//Delete from cart
+function deleteFromCart() {
+  //ID
+  let selectedProductForDeleteID = JSON.parse(
+    localStorage.getItem("selectedProductForDeleteID")
+  );
+  // console.log(selectedProductForDeleteID);
+
+  //USER
+
+  let storageUserInfoArr = storageUserInfo ? storageUserInfo : [];
+  storageUserInfoArr.orders.active = storageUserInfoArr.orders.active.filter(
+    (item) => {
+      return `${item.id}` !== selectedProductForDeleteID;
+    }
+  );
+  // console.log(storageUserInfoArr.orders.active);
+  console.log(storageUserInfoArr);
+  showProductDiv.innerHTML = "";
+  storageUserInfoArr.orders.active.forEach((element) => {
+    productCartAddToDOM(element);
+  });
+  totalSumFunction(storageUserInfoArr.orders.active);
+  console.log("total sum now", totalSum);
+  showCheckoutField();
+  localStorage.setItem("user", JSON.stringify(storageUserInfoArr));
+  // console.log("storageUserInfo updated / poduct removed from cart");
+}

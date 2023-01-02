@@ -15,7 +15,7 @@
   </head>
   <body>
     <!-- App bar -->
-    <div class="bg-white w-[100%] z-50 fixed top-0 px-4">
+    <div class="bg-white w-[100%] z-40 fixed top-0 px-4">
       <div class="app-bar grid grid-cols-8 h-[10vh]">
         <div class="col-start-1 col-span-1 flex items-center">
           <img class="w-5" src="../images/login-page-logo.svg" />
@@ -53,14 +53,48 @@
     <!-- checkout button -->
     <div
       id="checkout-div"
-      class="w-[100%] h-[14vh] fixed bottom-[10vh] z-50 p-4 rounded-t-3xl bg-white"
+      class="w-[100%] h-[14vh] fixed bottom-[10vh] z-40 p-4 rounded-t-3xl bg-white"
     ></div>
     <!-- Bottom Navigation -->
     <div
       id="bottom-nav"
-      class="bg-white w-[100%] fixed bottom-0 z-50 px-4 py-1"
+      class="bg-white w-[100%] fixed bottom-0 z-40 px-4 py-1"
     ></div>
 
+    //popup for delete
+    <div
+      id="delete-popup"
+      class="bg-[#00000050] w-[100%] h-[100vh] z-50 fixed top-0 hidden"
+    >
+      <div
+        class="bg-white w-[100%] h-[35vh] z-50 fixed bottom-0 pt-5 rounded-t-[60px]"
+      >
+        <div>
+          <h3 class="font-bold text-2xl text-center mt-5">
+            Are You Sure To <br />
+            Remove From Cart?
+          </h3>
+          <hr class="bg-gray-300 w-11/12 mx-auto mt-5" />
+        </div>
+
+        <div
+          class="text-lg w-[100%] absolute bottom-16 flex flex-row justify-between px-5"
+        >
+          <button
+            class="bg-gray-300 text-black w-[46%] py-4 rounded-full"
+            onclick="cancelDelete()"
+          >
+            Cancel
+          </button>
+          <button
+            class="bg-[#212529] text-white w-[46%] py-4 rounded-full"
+            onclick="yesDelete()"
+          >
+            Yes, Remove
+          </button>
+        </div>
+      </div>
+    </div>
     <script src="../components/bottomNavigation.js"></script>
     <script src="../scripts/cart.js"></script>
   </body>
