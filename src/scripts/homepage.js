@@ -5,6 +5,7 @@ const nameField = document.getElementById("name-field");
 const categoryItemsDiv = document.querySelector("#items");
 const searchInput = document.getElementById("search-input");
 const categoriesField = document.getElementById("categories-section");
+const wishlist = document.getElementById("wishlist");
 
 // App bar
 function showUserInfo(name, lastname, picture) {
@@ -16,6 +17,12 @@ showUserInfo(
   storageUserInfo.lastname,
   storageUserInfo.pic
 );
+
+//go to wishlist
+wishlist.addEventListener("click", goToWishlist);
+function goToWishlist() {
+  window.open("../pages/wishlist.html", "_self");
+}
 
 //search
 searchInput.addEventListener("keypress", (event) => {
