@@ -3,15 +3,35 @@ backIcon.addEventListener("click", showPrePage);
 let storageUserInfo = JSON.parse(localStorage.getItem("user"));
 let activeOrders = storageUserInfo.orders.active;
 const showProductDiv = document.getElementById("show-product-div");
-activeOrders.forEach((element) => {
-  productCartAddToDOM(element);
-});
+const defaultAddress = document.getElementById("default-address");
+const editAddress = document.getElementById("edit-address");
+let defaultAdd = "";
 
 //back app bar
 function showPrePage() {
   // history.back();
   window.open("../pages/cart.html", "_self");
 }
+
+//address
+function showUserAddress(userInfo) {
+  userInfo.address.filter((item) => {
+    if (item.defaultAddress == true) {
+      defaultAdd = item.address;
+    }
+  });
+  defaultAddress.innerText = defaultAdd;
+  console.log(defaultAdd);
+}
+showUserAddress(storageUserInfo);
+
+//show products
+function showActiveProducts() {
+  activeOrders.forEach((element) => {
+    productCartAddToDOM(element);
+  });
+}
+showActiveProducts();
 
 //single product cart
 function productCartAddToDOM(item) {
