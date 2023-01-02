@@ -9,22 +9,32 @@ function showActiveProducts() {
   activeTab.classList.add("border-b-4");
   completeTab.classList.remove("border-b-4");
   showProductsBox.innerHTML = "";
-  storageUserInfo.orders.active.forEach((element) => {
-    productAddToDOM(element);
-  });
+
+  if (storageUserInfo.orders.active.length == 0) {
+    noFoundPage("Active");
+  } else {
+    storageUserInfo.orders.active.forEach((element) => {
+      productAddToDOM(element, "Pending");
+    });
+  }
 }
 showActiveProducts();
-
-function noFoundPage() {}
 
 function showCompleteProducts() {
   showProductsBox.innerHTML = "";
   activeTab.classList.toggle("border-b-4");
   completeTab.classList.toggle("border-b-4");
+  if (storageUserInfo.orders.completed.length == 0) {
+    noFoundPage("Complete");
+  } else {
+    storageUserInfo.orders.completed.forEach((element) => {
+      productAddToDOM(element, "Completed");
+    });
+  }
 }
 
 //single product cart
-function productAddToDOM(item) {
+function productAddToDOM(item, status) {
   const cartSingleProduct = document.createElement("div");
   cartSingleProduct.classList.add(
     "cart-single-product",
@@ -78,7 +88,7 @@ function productAddToDOM(item) {
     "text-sm",
     "rounded-full"
   );
-  pending.innerHTML = `Pending...`;
+  pending.innerHTML = `${status}`;
   titleDiv.append(pending);
 
   //product Information box / Line 2 / selected color + size
@@ -113,4 +123,20 @@ function productAddToDOM(item) {
   cost.classList.add("font-bold", "text-lg");
   cost.innerText = `$ ${item.cost}`;
   costDiv.append(cost);
+}
+
+function noFoundPage(str) {
+  let noFoundDiv = document.createElement("div");
+  noFoundDiv.classList.add(
+    "w-[100%]",
+    "v-[100vh]",
+    "mt-[7vh]",
+    "flex",
+    "flex-col",
+    "justify-center",
+    "align-center"
+  );
+  noFoundDiv.innerHTML = `<img src="../images/nofound.png"/>
+  <h3 class="text-2xl text-center font-semibold">There is No ${str} product</h3>`;
+  showProductsBox.append(noFoundDiv);
 }
