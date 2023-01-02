@@ -24,9 +24,9 @@ let user = [
         defaultAddress: true,
       },
       {
-        addressNum: 1,
-        address: "Belgium	, place Louis 60 - Fosses-la-Ville",
-        defaultAddress: true,
+        addressNum: 2,
+        address: "USA	, 3075 Rau Divide - Connecticut",
+        defaultAddress: false,
       },
     ],
     orders: {
