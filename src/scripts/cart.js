@@ -4,7 +4,7 @@ let storageUserInfo = JSON.parse(localStorage.getItem("user"));
 const deletePopup = document.getElementById("delete-popup");
 let activeOrders = storageUserInfo.orders.active;
 let totalSum = 0;
-// console.log(activeOrders);
+console.log(activeOrders);
 
 let totalSumFunction = (arr) => {
   totalSum = 0;
@@ -222,6 +222,9 @@ function showCheckoutField() {
     "rounded-full"
   );
   checkoutBtn.innerText = "Checkout";
+  checkoutBtn.addEventListener("click", () => {
+    window.open("../pages/checkout.html", "_self");
+  });
   mainDiv.append(checkoutBtn);
 }
 showCheckoutField();

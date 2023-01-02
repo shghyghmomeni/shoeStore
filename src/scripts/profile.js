@@ -25,9 +25,9 @@ function showUserInformations(userInfo) {
 showUserInformations(userInfo);
 
 function goToManageAddressPage() {
-  window.open("../manageAddress.html", "_self");
+  window.open("../pages/manageAddress.html", "_self");
 }
 
 function goToWishlistPage() {
-  window.open("../wishlist.html", "_self");
+  window.open("../pages/wishlist.html", "_self");
 }
